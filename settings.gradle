@@ -1,0 +1,14 @@
+rootProject.name = 'BinderDeposit'
+
+include ':OneAppBase'
+include ':OneAppLibB'
+include ':OneAppLibA'
+include ':oneapp'
+include ':deposit'
+include ':deposit_manager'
+include ':deposit_jar'
+
+project(':OneAppBase').projectDir = new File('demo/OneApp/OneAppBase')
+project(':OneAppLibB').projectDir = new File('demo/OneApp/OneAppLibB')
+project(':OneAppLibA').projectDir = new File('demo/OneApp/OneAppLibA')
+project(':oneapp').projectDir = new File('demo/OneApp/oneapp')

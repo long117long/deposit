@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zxl.deposit.manager" >
+    <application>
+        <provider
+            android:name="com.zxl.deposit.manager.BinderDepositProvider"
+            android:authorities="${applicationId}.BinderDepositProvider"
+            android:exported="true" />
+    </application>
+</manifest>

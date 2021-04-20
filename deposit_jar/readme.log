@@ -1,0 +1,33 @@
+2020-3-21 版本号：3.1.0
+1. 在代码中添加清除不再使用的参数代理的相关功能;
+
+
+2020-1-20 版本号：3.0.1
+1. 支持在client端的接口中传到service端一个interface类；
+   利用这个功能可以在client注册一个回调实例到service端，这样的话service端也可以回调到client端了。
+
+2020-1-8 版本号: 2.0.1
+1. 配合服务端2.0.1 使用
+
+2020-1-2 版本号：1.0.1
+1. 第一版正式jar。
+
+//↓==================================================================================================================↓
+   使用方式为：
+    a. 服务端定义的接口类，
+        public interface IFun {
+                byte[] genRandom(int len);
+            }
+     b. 创建接口代理
+     IFun iFun = new DepositProxy.Builder()
+                    //设置远程服务所在的apk的包名.注意：如果远程服务和此类是在同一个apk中，此方法可以不用调用。
+                    .setPkgName("com.zxl.app_deposit_service")
+                    //设置在服务实现类使用注解@ServiceName时的名字。如果服务实现类没有使用注解@ServiceName，此方法可以不用调用。
+                    .setServiceName("FunImpl")
+                    //设置Context。此方法必须调用
+                    .setContext(getApplicationContext())
+                    //创建接口类代理
+                    .create(IFun.class);
+     c. 使用接口类代理
+        byte[] random = iFun.genRandom(16);
+//↑==================================================================================================================↑
